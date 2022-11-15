@@ -40,12 +40,12 @@ class TransactionController extends Controller
         $paynow = new \Paynow\Payments\Paynow(
             "11336",
             "1f4b3900-70ee-4e4c-9df9-4a44490833b6",
-            route('user-add-payment'),
-            route('user-add-payment'),
+            route('user-pay'),
+            route('user-pay'),
         );
 
         // Create Payments
-        $invoice_name = "zbc_radio_and tv_license" . time();
+        $invoice_name = "Koala-Booking-" . time();
         $payment = $paynow->createPayment($invoice_name, $email);
 
         $payment->add("ZBC License", $amount);

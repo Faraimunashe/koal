@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
     Route::get('/admin/cattle/{book_id}', 'App\Http\Controllers\admin\CattleController@index')->name('admin-cattle');
     Route::get('/admin-cattle/{cattle_id}', 'App\Http\Controllers\admin\CattleController@cow')->name('admin-cow');
-    Route::get('/admin/cattle-diagnise', 'App\Http\Controllers\admin\CattleController@diagnise')->name('admin-diagnosis-cattle');
+    Route::post('/admin/cattle-diagnise', 'App\Http\Controllers\admin\CattleController@diagnise')->name('admin-diagnosis-cattle');
 });
 
 Route::group(['middleware' => ['auth', 'role:user']], function () {
