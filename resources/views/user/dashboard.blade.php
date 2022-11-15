@@ -58,6 +58,7 @@
                                         <th class="font-weight-bold">Price</th>
                                         <th class="font-weight-bold">Status</th>
                                         <th class="font-weight-bold">Abattoir</th>
+                                        <th class="font-weight-bold">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,15 +80,30 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-inverse-primary btn-icon" data-toggle="modal" data-target="#editPriceModal{{$item->id}}">
+                                                @if ($item->payment)
+                                                    <div class="badge badge-primary p-2">paid</div>
+                                                @else
                                                     ${{$item->price}}
-                                                    <div></div>
-                                                </button>
+                                                @endif
                                             </td>
                                             <td>
                                                 <div class="badge badge-{{get_booking_status($item->status)->badge}} p-2">{{ get_booking_status($item->status)->label }}</div>
                                             </td>
                                             <td>{{ get_abattoir($item->abattoir_id)->name }}</td>
+                                            <td>
+                                                @if ($item->status == 1)
+                                                    @if (!$item->payment)
+                                                        <button type="button" class="btn btn-inverse-primary" data-toggle="modal" data-target="#editPriceModal{{$item->id}}">
+                                                            Paynow
+                                                            <div></div>
+                                                        </button>
+                                                    @else
+                                                        <a href="{{route('user-booking-details', $item->id)}}">
+                                                            more ...
+                                                        </a>
+                                                    @endif
+                                                @endif
+                                            </td>
                                         </tr>
                                         <!--Edit Modal -->
                                         <div class="modal fade" id="editPriceModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -96,6 +112,7 @@
                                                     <form method="POST" action="{{route('user-pay')}}">
                                                         @csrf
                                                         <input type="hidden" name="price" value="{{$item->price}}" required>
+                                                        <input type="hidden" name="booking_id" value="{{$item->id}}" required>
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">Make Payment</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

@@ -97,7 +97,25 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="price">Price</label>
-                                                                <input type="text" name="price" id="price" class="form-control" placeholder="Enter amount" required>
+                                                                <input type="text" name="price" id="price" class="form-control" placeholder="Enter amount">
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="date">Date</label>
+                                                                        <input type="date" name="date" id="date" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="time">Time</label>
+                                                                        <input type="time" name="time" id="time" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="sr">Slaughter Room</label>
+                                                                <input type="text" name="slaughter_room" id="sr" class="form-control" placeholder="Slaughter room">
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">

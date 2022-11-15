@@ -43,7 +43,7 @@
                                 <input type="text" name="breed" class="form-control" placeholder="Breed" required>
                             </div>
                             <div class="input-group mb-4">
-                                <input type="text" name="description" class="form-control" placeholder="Description (optional)">
+                                <input type="text" name="description" class="form-control" placeholder="Weight and other special features.">
                             </div>
                             <div class="row">
                                 <div class="col-md-6">

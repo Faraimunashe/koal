@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware(['auth'])->name('dashboard');
 Route::get('/profile', 'App\Http\Controllers\ProfileController@index')->middleware(['auth'])->name('profile');
+Route::post('/change-password', 'App\Http\Controllers\ProfileController@change')->middleware(['auth'])->name('change-password');
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/dashboard', 'App\Http\Controllers\admin\DashboardController@index')->name('admin-dashboard');
@@ -36,6 +37,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/bookings', 'App\Http\Controllers\admin\BookingController@index')->name('admin-bookings');
     Route::post('/admin/booking-reply', 'App\Http\Controllers\admin\BookingController@reply')->name('admin-reply-booking');
 
+    Route::get('/admin/prices', 'App\Http\Controllers\admin\PriceController@index')->name('admin-prices');
+    Route::post('/admin/update', 'App\Http\Controllers\admin\PriceController@update')->name('admin-update-price');
+
     Route::get('/admin/cattle/{book_id}', 'App\Http\Controllers\admin\CattleController@index')->name('admin-cattle');
     Route::get('/admin-cattle/{cattle_id}', 'App\Http\Controllers\admin\CattleController@cow')->name('admin-cow');
     Route::post('/admin/cattle-diagnise', 'App\Http\Controllers\admin\CattleController@diagnise')->name('admin-diagnosis-cattle');
@@ -52,6 +56,7 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/add-cattle', 'App\Http\Controllers\user\BookingController@cow')->name('user-create-cow');
     Route::post('/add-book', 'App\Http\Controllers\user\BookingController@add')->name('user-add-book');
     Route::post('/add-cow', 'App\Http\Controllers\user\BookingController@add_cow')->name('user-add-cow');
+    Route::get('/booking-details/{booking_id}', 'App\Http\Controllers\user\BookingController@details')->name('user-booking-details');
 
 });
 

@@ -13,16 +13,38 @@
                     </div>
                 @endif
                 <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Register new account</h5>
-                <div class="form-outline mb-4">
-                    <input type="text" name="name" id="name" class="form-control form-control-lg" />
-                    <label class="form-label" for="name">Username</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-outline mb-4">
+                            <input type="text" name="fname" id="firstname" class="form-control form-control-lg" />
+                            <label class="form-label" for="firstname">Firstname</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-outline mb-4">
+                            <input type="text" name="lname" id="lastname" class="form-control form-control-lg" />
+                            <label class="form-label" for="lastname">Lastname</label>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="form-outline mb-4">
-                    <input type="email" name="email" id="email" class="form-control form-control-lg" />
-                    <label class="form-label" for="email">Email address</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-outline mb-4">
+                            <input type="text" name="phone" id="phone" class="form-control form-control-lg" />
+                            <label class="form-label" for="phone">Phone</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-outline mb-4">
+                            <input type="email" name="email" id="email" class="form-control form-control-lg" />
+                            <label class="form-label" for="email">Email address</label>
+                        </div>
+                    </div>
                 </div>
-
+                <div class="form-outline mb-4">
+                    <input type="text" name="address" id="address" class="form-control form-control-lg" />
+                    <label class="form-label" for="address">Address</label>
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-outline mb-4">

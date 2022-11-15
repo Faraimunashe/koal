@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
+use App\Models\Paynowlog;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,9 +23,12 @@ class TransactionController extends Controller
     public function pay(Request $request)
     {
         $request->validate([
+            'booking_id' => ['required', 'integer'],
             'price' => ['required', 'numeric'],
             'phone' => ['required', 'digits:10', 'starts_with:07']
         ]);
+
+        $booking = Booking::find($request->booking_id);
 
         $wallet = "ecocash";
 
@@ -48,7 +53,7 @@ class TransactionController extends Controller
         $invoice_name = "Koala-Booking-" . time();
         $payment = $paynow->createPayment($invoice_name, $email);
 
-        $payment->add("ZBC License", $amount);
+        $payment->add("Koal Payment", $amount);
 
         $response = $paynow->sendMobile($payment, $phone, $wallet);
 
@@ -86,19 +91,18 @@ class TransactionController extends Controller
                     //transaction update
                     $trans = new Transaction();
                     $trans->user_id = Auth::id();
+                    $trans->booking_id = $request->booking_id;
                     $trans->reference = $info['paynowreference'];
-                    $trans->action = "license";
+                    $trans->action = "slaughter";
                     $trans->method = "paynow";
                     $trans->amount = $info['amount'];
                     $trans->status = 1;
                     $trans->save();
-                    try{
-                    paid_license($account->id, $amount, $lprice->period, $request->price_id);
-                    }catch(Exception $e){
-                        return redirect()->back()->with('error', 'ERROR: '.$e->getMessage());
-                    }
 
-                    return redirect()->back()->with('success', 'Succesfully paid license fee');
+                    $booking->payment = true;
+                    $booking->save();
+
+                    return redirect()->back()->with('success', 'Succesfully paid your booking');
                 }
 
 
@@ -123,8 +127,9 @@ class TransactionController extends Controller
                     //transaction update
                     $trans = new Transaction();
                     $trans->user_id = Auth::id();
+                    $trans->booking_id = $request->booking_id;
                     $trans->reference = $info['paynowreference'];
-                    $trans->action = "license";
+                    $trans->action = "slaughter";
                     $trans->method = "paynow";
                     $trans->amount = $info['amount'];
                     $trans->status = $trans_status;

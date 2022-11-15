@@ -55,7 +55,7 @@
                                                 @endphp
                                             </td>
                                             <td>{{ $item->cattle_id }}</td>
-                                            <td>${{$item->disease}}</td>
+                                            <td>{{$item->disease}}</td>
                                             <td>{{$item->description}}</td>
                                             <td>{{$item->advice}}</td>
                                         </tr>

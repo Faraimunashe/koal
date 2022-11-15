@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\BookingDetail;
 use App\Models\Cattle;
 use Exception;
 use Illuminate\Http\Request;
@@ -70,5 +71,19 @@ class BookingController extends Controller
         {
             return redirect()->back()->with('error', 'ERROR: '.$e->getMessage());
         }
+    }
+
+    public function details($booking_id)
+    {
+        $booking = Booking::find($booking_id);
+        if(is_null($booking)){
+            return redirect()->back()->with('error', 'Cannot locate specified booking');
+        }
+
+        $detail = BookingDetail::where('booking_id', $booking->id)->first();
+        return view('user.details', [
+            'booking' => $booking,
+            'detail' => $detail
+        ]);
     }
 }
