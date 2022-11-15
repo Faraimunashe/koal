@@ -22,7 +22,7 @@ return new class extends Migration
             $table->decimal('price')->nullable();
             $table->date('date')->nullable();
             $table->integer('status')->default(2);
-            $table->boolean('payment')->dafault(false);
+            $table->boolean('payment')->default(false);
             $table->timestamps();
         });
     }

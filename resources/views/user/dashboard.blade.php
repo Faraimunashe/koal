@@ -26,9 +26,9 @@
                 <div class="card card-secondary">
                     <span class="card-body d-lg-flex align-items-center">
                         <p class="mb-lg-0">You can inquire about the pricing of our services here.</p>
-                        <button type="button" class="btn btn-success purchase-button btn-sm my-1 my-sm-0 ml-auto" data-toggle="modal" data-target="#exampleModal">
+                        <a href="{{route('user-create-booking')}}" class="btn btn-success purchase-button btn-sm my-1 my-sm-0 ml-auto">
                             Create Booking
-                        </button>
+                        </a>
                     </span>
                 </div>
             </div>
@@ -109,59 +109,39 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <div class="form-check form-check-primary">
-                                  <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" checked=""> Primary <i class="input-helper"></i></label>
-                                </div>
-                                <div class="form-check form-check-success">
-                                  <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" checked=""> Success <i class="input-helper"></i></label>
-                                </div>
-                                <div class="form-check form-check-info">
-                                  <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" checked=""> Info <i class="input-helper"></i></label>
-                                </div>
-                                <div class="form-check form-check-danger">
-                                  <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" checked=""> Danger <i class="input-helper"></i></label>
-                                </div>
-                                <div class="form-check form-check-warning">
-                                  <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" checked=""> Warning <i class="input-helper"></i></label>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <div class="form-check form-check-primary">
-                                  <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="ExampleRadio1" id="ExampleRadio1" checked=""> Primary <i class="input-helper"></i></label>
-                                </div>
-                                <div class="form-check form-check-success">
-                                  <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="ExampleRadio2" id="ExampleRadio2" checked=""> Success <i class="input-helper"></i></label>
-                                </div>
-                                <div class="form-check form-check-info">
-                                  <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="ExampleRadio3" id="ExampleRadio3" checked=""> Info <i class="input-helper"></i></label>
-                                </div>
-                                <div class="form-check form-check-danger">
-                                  <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="ExampleRadio4" id="ExampleRadio4" checked=""> Danger <i class="input-helper"></i></label>
-                                </div>
-                                <div class="form-check form-check-warning">
-                                  <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="ExampleRadio5" id="ExampleRadio5" checked=""> Warning <i class="input-helper"></i></label>
-                                </div>
-                              </div>
+                            <div class="table-responsive border rounded p-1">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="font-weight-bold">#</th>
+                                            <th class="font-weight-bold">Name</th>
+                                            <th class="font-weight-bold">Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                            $count = 0;
+                                        @endphp
+                                        @foreach (\App\Models\Price::all() as $item)
+                                            <tr>
+                                                <td>
+                                                    @php
+                                                        $count ++;
+                                                        echo $count;
+                                                    @endphp
+                                                </td>
+                                                <td>{{$item->name}}</td>
+                                                <td>${{$item->amount}}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Save changes</button>
+                        <button type="submit" class="btn btn-warning">Print Quote</button>
                     </div>
                 </form>
             </div>

@@ -11,6 +11,12 @@
         <link rel="stylesheet" href="{{ asset('assets/vendors/chartist/chartist.min.css')}}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
         <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png')}}')}}" />
+        <style>
+            #pakati {
+                margin-right: 25%;
+                margin-left: 25%;
+            }
+        </style>
     </head>
     <body>
         <div class="container-scroller">

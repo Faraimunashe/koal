@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('booking_id');
             $table->string('color');
+            $table->string('gender');
             $table->string('breed');
             $table->string('reference');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

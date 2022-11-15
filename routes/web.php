@@ -49,6 +49,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
 
     Route::get('/create-booking', 'App\Http\Controllers\user\BookingController@index')->name('user-create-booking');
     Route::get('/add-cattle', 'App\Http\Controllers\user\BookingController@cow')->name('user-create-cow');
+    Route::post('/add-book', 'App\Http\Controllers\user\BookingController@add')->name('user-add-book');
+    Route::post('/add-cow', 'App\Http\Controllers\user\BookingController@add_cow')->name('user-add-cow');
 
 });
 
