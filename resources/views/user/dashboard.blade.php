@@ -78,12 +78,44 @@
                                                     {{count_cattle($item->id)}}
                                                 </a>
                                             </td>
-                                            <td>${{$item->price}}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-inverse-primary btn-icon" data-toggle="modal" data-target="#editPriceModal{{$item->id}}">
+                                                    ${{$item->price}}
+                                                    <div></div>
+                                                </button>
+                                            </td>
                                             <td>
                                                 <div class="badge badge-{{get_booking_status($item->status)->badge}} p-2">{{ get_booking_status($item->status)->label }}</div>
                                             </td>
                                             <td>{{ get_abattoir($item->abattoir_id)->name }}</td>
                                         </tr>
+                                        <!--Edit Modal -->
+                                        <div class="modal fade" id="editPriceModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <form method="POST" action="{{route('user-pay')}}">
+                                                        @csrf
+                                                        <input type="hidden" name="price" value="{{$item->price}}" required>
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Make Payment</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label for="phone">Phone</label>
+                                                                <input type="tel" name="phone" id="phone" class="form-control" placeholder="Enter phone" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-success">Start payment</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endforeach
                                 </tbody>
                                 {{$bookings->links('pagination::bootstrap-4')}}

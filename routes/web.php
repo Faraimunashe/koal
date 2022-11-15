@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/get-quote', 'App\Http\Controllers\user\DashboardController@quote')->name('user-quote');
 
     Route::get('/payments', 'App\Http\Controllers\user\TransactionController@index')->name('user-transactions');
+    Route::post('/make-payment', 'App\Http\Controllers\user\TransactionController@pay')->name('user-pay');
 
     Route::get('/create-booking', 'App\Http\Controllers\user\BookingController@index')->name('user-create-booking');
     Route::get('/add-cattle', 'App\Http\Controllers\user\BookingController@cow')->name('user-create-cow');

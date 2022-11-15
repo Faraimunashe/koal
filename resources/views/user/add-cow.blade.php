@@ -32,8 +32,8 @@
                             <div class="input-group mb-4">
                                 <select name="gender" class="form-control" required>
                                     <option selected disabled>Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
+                                    <option value="Bull">Bull</option>
+                                    <option value="Cow">Cow</option>
                                 </select>
                             </div>
                             <div class="input-group mb-4">
@@ -43,11 +43,20 @@
                                 <input type="text" name="breed" class="form-control" placeholder="Breed" required>
                             </div>
                             <div class="input-group mb-4">
-                                <input type="text" name="description" class="form-control" placeholder="Description">
+                                <input type="text" name="description" class="form-control" placeholder="Description (optional)">
                             </div>
-                            <button type="submit" class="btn btn-outline-success btn-block btn-fw">
-                                Book
-                            </button>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-outline-success btn-block btn-fw">
+                                        Book
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="{{route('dashboard')}}" class="btn btn-outline-danger btn-block btn-fw">
+                                        Enough
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

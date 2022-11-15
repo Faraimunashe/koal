@@ -55,7 +55,7 @@
                                                 @endphp
                                             </td>
                                             <td>{{ $item->name }}</td>
-                                            <td>${{$item->address}}</td>
+                                            <td>{{$item->address}}</td>
                                             <td>{{$item->city}}</td>
                                             <td>
                                                 <button type="button" class="btn btn-inverse-primary btn-icon" data-toggle="modal" data-target="#editPriceModal{{$item->id}}">

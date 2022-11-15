@@ -44,7 +44,7 @@
                                     @php
                                         $count = 0;
                                     @endphp
-                                    @foreach ($bookings as $item)
+                                    @foreach ($cattle as $item)
                                         <tr>
                                             <td>
                                                 @php
