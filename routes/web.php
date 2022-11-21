@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
     Route::get('/admin/bookings', 'App\Http\Controllers\admin\BookingController@index')->name('admin-bookings');
     Route::post('/admin/booking-reply', 'App\Http\Controllers\admin\BookingController@reply')->name('admin-reply-booking');
+    Route::post('/admin/delete-booking', 'App\Http\Controllers\admin\BookingController@delete')->name('admin-delete-booking');
 
     Route::get('/admin/prices', 'App\Http\Controllers\admin\PriceController@index')->name('admin-prices');
     Route::post('/admin/update', 'App\Http\Controllers\admin\PriceController@update')->name('admin-update-price');

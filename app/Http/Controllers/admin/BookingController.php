@@ -51,4 +51,21 @@ class BookingController extends Controller
             return redirect()->back()->with('error', 'ERROR: '.$e->getMessage());
         }
     }
+
+    public function delete(Request $request)
+    {
+        $request->validate([
+            'booking_id' => ['required', 'integer']
+        ]);
+
+        try{
+            $booking = Booking::find($request->booking_id);
+            $booking->delete();
+
+            return redirect()->back()->with('success', 'successfully deleted a booking');
+        }catch(Exception $e)
+        {
+            return redirect()->back()->with('error', 'ERROR: '.$e->getMessage());
+        }
+    }
 }

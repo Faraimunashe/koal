@@ -71,6 +71,10 @@
                                                     <i class="icon-note"></i>
                                                     <div></div>
                                                 </button>
+                                                <button type="button" class="btn btn-inverse-primary btn-icon" data-toggle="modal" data-target="#deleteModal{{$item->id}}">
+                                                    <i class="icon-trash"></i>
+                                                    <div></div>
+                                                </button>
                                             </td>
                                         </tr>
                                         <!--Edit Modal -->
@@ -121,6 +125,30 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                                                             <button type="submit" class="btn btn-success">Save changes</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Delete Modal -->
+                                        <div class="modal fade" id="deleteModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <form method="POST" action="{{route('admin-delete-booking')}}">
+                                                        @csrf
+                                                        <input type="hidden" name="booking_id" value="{{$item->id}}" required>
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Delete Booking</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Are you sure you want to delete this booking?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-danger">Yes delete</button>
                                                         </div>
                                                     </form>
                                                 </div>
