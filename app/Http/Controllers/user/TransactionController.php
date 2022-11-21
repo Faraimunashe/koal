@@ -91,7 +91,7 @@ class TransactionController extends Controller
                     //transaction update
                     $trans = new Transaction();
                     $trans->user_id = Auth::id();
-                    $trans->book_id = $request->book_id;
+                    $trans->book_id = $request->booking_id;
                     $trans->reference = $info['paynowreference'];
                     $trans->action = "slaughter";
                     $trans->method = "paynow";
@@ -127,7 +127,7 @@ class TransactionController extends Controller
                     //transaction update
                     $trans = new Transaction();
                     $trans->user_id = Auth::id();
-                    $trans->book_id = $request->book_id;
+                    $trans->book_id = $request->booking_id;
                     $trans->reference = $info['paynowreference'];
                     $trans->action = "slaughter";
                     $trans->method = "paynow";
