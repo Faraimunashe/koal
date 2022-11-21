@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::post('/add-cow', 'App\Http\Controllers\user\BookingController@add_cow')->name('user-add-cow');
     Route::get('/booking-details/{booking_id}', 'App\Http\Controllers\user\BookingController@details')->name('user-booking-details');
 
+    Route::get('/user/diagnosis', 'App\Http\Controllers\user\DiagnosisController@index')->name('user-diagnosis');
 });
 
 require __DIR__.'/auth.php';

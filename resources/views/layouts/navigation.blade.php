@@ -75,6 +75,12 @@
                     <i class="icon-doc menu-icon"></i>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('user-diagnosis')}}">
+                    <span class="menu-title">Diagnosis</span>
+                    <i class="icon-speech  menu-icon"></i>
+                </a>
+            </li>
         @endif
     </ul>
 </nav>
