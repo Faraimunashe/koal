@@ -69,8 +69,8 @@
                     {{$slot}}
                     <footer class="footer">
                         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Faraimunashe 2022</span>
-                            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> From <a href="https://faraimunashe.me" target="_blank">Prof-Virus</a> Faraimunashe.me</span>
+                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Projects 2022</span>
+                            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> From <a href="#" target="_blank">MaDeveloper Manyama</a></span>
                         </div>
                     </footer>
                 </div>
