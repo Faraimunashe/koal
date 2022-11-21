@@ -38,6 +38,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::post('/admin/booking-reply', 'App\Http\Controllers\admin\BookingController@reply')->name('admin-reply-booking');
     Route::post('/admin/delete-booking', 'App\Http\Controllers\admin\BookingController@delete')->name('admin-delete-booking');
 
+    Route::get('/admin/quotations', 'App\Http\Controllers\admin\QuoteController@index')->name('admin-quotes');
+    Route::post('/admin/add-quote', 'App\Http\Controllers\admin\QuoteController@add')->name('admin-add-quote');
+
     Route::get('/admin/prices', 'App\Http\Controllers\admin\PriceController@index')->name('admin-prices');
     Route::post('/admin/update', 'App\Http\Controllers\admin\PriceController@update')->name('admin-update-price');
 
@@ -48,7 +51,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
 Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/user/dashboard', 'App\Http\Controllers\user\DashboardController@index')->name('user-dashboard');
-    Route::get('/get-quote', 'App\Http\Controllers\user\DashboardController@quote')->name('user-quote');
+    Route::post('/get-quote', 'App\Http\Controllers\user\DashboardController@quote')->name('user-get-quote');
+
+    Route::get('/quotations', 'App\Http\Controllers\user\QuoteController@index')->name('user-quotes');
 
     Route::get('/payments', 'App\Http\Controllers\user\TransactionController@index')->name('user-transactions');
     Route::post('/make-payment', 'App\Http\Controllers\user\TransactionController@pay')->name('user-pay');

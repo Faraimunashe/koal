@@ -45,6 +45,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{route('admin-quotes')}}">
+                    <span class="menu-title">Quotations</span>
+                    <i class="icon-doc menu-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('admin-abattoirs')}}">
                     <span class="menu-title">Abattoirs</span>
                     <i class="icon-speech  menu-icon"></i>
@@ -61,6 +67,12 @@
                 <a class="nav-link" href="{{route('user-transactions')}}">
                     <span class="menu-title">Payments</span>
                     <i class="icon-credit-card menu-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('user-quotes')}}">
+                    <span class="menu-title">Quotations</span>
+                    <i class="icon-doc menu-icon"></i>
                 </a>
             </li>
         @endif

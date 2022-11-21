@@ -148,7 +148,7 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form method="POST" action="{{route('user-quote')}}">
+                <form method="POST" action="{{route('user-get-quote')}}">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Request a quote</h5>
@@ -157,40 +157,18 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="table-responsive border rounded p-1">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="font-weight-bold">#</th>
-                                            <th class="font-weight-bold">Name</th>
-                                            <th class="font-weight-bold">Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $count = 0;
-                                        @endphp
-                                        @foreach (\App\Models\Price::all() as $item)
-                                            <tr>
-                                                <td>
-                                                    @php
-                                                        $count ++;
-                                                        echo $count;
-                                                    @endphp
-                                                </td>
-                                                <td>{{$item->name}}</td>
-                                                <td>${{$item->amount}}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="form-group">
+                            <label for="unit">Service</label>
+                            <input type="text" name="purpose" class="form-control" value="Slaughter" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="cattle">Number of Cattle</label>
+                            <input type="text" name="cattle" class="form-control" placeholder="total cattle" required>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-warning">Print Quote</button>
+                        <button type="submit" class="btn btn-warning">Request Quote</button>
                     </div>
                 </form>
             </div>
