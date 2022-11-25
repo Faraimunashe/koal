@@ -40,7 +40,7 @@
                         <div class="col-md-6">
                             <address class="text-primary">
                                 <p class="font-weight-bold">Slaughter Room</p>
-                                <p class="mb-2"> {{$detail->slughter_room}} </p>
+                                <p class="mb-2"> {{$detail->slaughter_room}} </p>
                             </address>
                         </div>
                     </div>

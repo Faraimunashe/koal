@@ -13,7 +13,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $bookings = Booking::where('user_id', Auth::id())->paginate(10);
+        $bookings = Booking::where('user_id', Auth::id())->latest()->paginate(10);
         return view('user.dashboard', [
             'bookings' => $bookings
         ]);
