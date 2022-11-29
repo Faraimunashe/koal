@@ -47,6 +47,11 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/cattle/{book_id}', 'App\Http\Controllers\admin\CattleController@index')->name('admin-cattle');
     Route::get('/admin-cattle/{cattle_id}', 'App\Http\Controllers\admin\CattleController@cow')->name('admin-cow');
     Route::post('/admin/cattle-diagnise', 'App\Http\Controllers\admin\CattleController@diagnise')->name('admin-diagnosis-cattle');
+
+
+    Route::get('/admin/notices', 'App\Http\Controllers\admin\NoticeController@index')->name('admin-notices');
+    Route::post('/admin/add-notice', 'App\Http\Controllers\admin\NoticeController@add')->name('admin-add-notice');
+    Route::post('/admin/delete-notice', 'App\Http\Controllers\admin\NoticeController@delete')->name('admin-delete-notice');
 });
 
 Route::group(['middleware' => ['auth', 'role:user']], function () {
@@ -54,6 +59,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::post('/get-quote', 'App\Http\Controllers\user\DashboardController@quote')->name('user-get-quote');
 
     Route::get('/quotations', 'App\Http\Controllers\user\QuoteController@index')->name('user-quotes');
+
+    Route::get('/notices', 'App\Http\Controllers\user\NoticeController@index')->name('user-notices');
 
     Route::get('/payments', 'App\Http\Controllers\user\TransactionController@index')->name('user-transactions');
     Route::post('/make-payment', 'App\Http\Controllers\user\TransactionController@pay')->name('user-pay');

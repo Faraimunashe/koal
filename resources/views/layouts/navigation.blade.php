@@ -62,6 +62,12 @@
                     <i class="icon-speech  menu-icon"></i>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin-notices')}}">
+                    <span class="menu-title">Notices</span>
+                    <i class="icon-speech  menu-icon"></i>
+                </a>
+            </li>
         @elseif(Auth::user()->hasRole('user'))
             <li class="nav-item">
                 <a class="nav-link" href="{{route('user-transactions')}}">
@@ -78,6 +84,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('user-diagnosis')}}">
                     <span class="menu-title">Diagnosis</span>
+                    <i class="icon-speech  menu-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('user-notices')}}">
+                    <span class="menu-title">Notices</span>
                     <i class="icon-speech  menu-icon"></i>
                 </a>
             </li>
